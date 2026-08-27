@@ -1,0 +1,111 @@
+\documentclass{amsart}
+\usepackage{amsmath, amssymb, amsthm,enumitem}
+\title{Homework 1: 1.1-2.6}
+\author{ANTONY PEREZ}
+\date{\today}
+\begin{document}
+\maketitle
+\subsection*{1.1}
+Let $x = (1,2,3)^{T}$, $y=(y_1,y_2,y_3)^{T}$, $z=(4,2,1)^{T}$. Compute $2x$, $3y$, and $x+2y-3z$.
+\begin{proof}
+    1: $2x = 2(1,2,3)^{T} = (2,4,6)^{T}$
+    
+    2: $3y = 3(y_1,y_2,y_3)^{T} = (3y_1,3y_2,3y_3)^{T}$
+    
+    3: $x+2y-3z = (1,2,3)^{T} + 2(y_1,y_2,y_3)^{T} - (12,6,3)^{T} = (2y_1 - 11, 2y_2 - 4, 2y_3)^{T}$
+\end{proof}
+\subsection*{1.2} Which of the following sets (with natural addition and multiplcation by a scalar) are vector spaces? Justify your answer.
+\begin{enumerate}[label=\alph*)]
+    \item The set of all continuous functions on the interval $[0,1]$;
+    \item The set of all non-negative functions on the interval $[0,1]$;
+    \item The set of all polynomials of degree exactly $n$;
+    \item The set of all symmetric $n \times n$ matrices, i.e the set of matrices $A = \{a_{j,k}\}_{j,k=1}^{n}$ such that $A^T = A$.
+\end{enumerate}
+\begin{proof}
+    A is a vector space. Given two distinct functions $f$ and $g$, and some $x \in [0,1]$, we can define vector addition and scalar multiplication as such: $(f+g)(x) = f(x)+g(x)$; $(\alpha f)(x) = \alpha f (x)$, where $\alpha \in \mathbb{R}$. 
+
+\end{proof}
+\subsection*{1.3} True or false:
+\begin{enumerate}[label=\alph*)]
+    \item Every vector space contains a zero vector;
+    \item A vector space can have more than one zero vector;
+    \item An $m \times n$ matrix has $m$ rows and $n$ columns; 
+    \item If $f$ and $g$ are polynomials of degree $n$, then $f+g$ is also a polynomial of degree $n$;
+    \item If $f$ and $g$ are polynomials of degree at most $n$, then $f+g$ is also a polynomial of degree at most $n$
+\end{enumerate}
+\begin{proof}
+    TFTFT
+\end{proof}
+\subsection*{1.4} Prove that a zero vector 0 of a vector space $V$ is unique. 
+\begin{proof}
+    To prove uniqueness, assume that there exists two zero vectors, $0$ and $\bar{0}$, both belonging to the vector space $V$. By our axioms, we know if $x \in V$, then $x + 0 = x + \bar{0} = x$. Now, using our axioms, we can derive that $x + \bar{0} = x + 0 \rightarrow \bar{0} = 0$. This shows that our distinct zero vectors are equal, and thus the zero vector is unique. 
+\end{proof}
+\subsection*{1.5} What matrix is the zero vector of the space $M_{2\times 3}$
+\begin{proof}
+   $ \begin{pmatrix}
+        0 & 0 & 0 \\ 
+        0 & 0 & 0
+    \end{pmatrix}$
+\end{proof}
+\subsection*{1.6} Prove that the additive inverse, defined in Axiom 4 of a vector space is unique. 
+\begin{proof}
+    To prove uniqueness, assume there exists two additive inverses in $V$, that being $-v$ and $\bar{v}$. Using our axioms, we may derive that $v + (-v) = v + (\bar{v})= 0$. Now, using our axioms, we can derive that $v + (-v) = v + (\bar{v}) \rightarrow -v = \bar{v}$. This shows that the additive inverse is unique.  
+\end{proof}
+\subsection*{1.7} Prove that $0v=0$ for any vector $v \in V$. 
+\begin{proof}
+    $0v = 0 \rightarrow (0 + 0)v = 0v \rightarrow 0v + 0v = 0v \rightarrow 0v = 0$.
+\end{proof}
+\subsection*{1.8} Prove that for any vector $v$ its additive inverse $-v$ is given by $(-1)v$. 
+\begin{proof}
+    We know that $v + (-v) = 0$ through our axioms. Now, we can represent this using the distributive property: $(1 + (-1))v = 0 \rightarrow 0v = 0$ which is proven by our axiom for vector spaces. 
+\end{proof}
+\subsection*{2.1} Find a basis in the space of $3\times 2$ matrices $M_{3\times 2}$.
+\begin{proof}
+    Since we have a $3\times 2 $ matrix, our basis for this vector space would be the first two columns of the matrix. Since we only have two columns, we span $\mathbb{R^2}$ in $\mathbb{R}^3$ plane. A simpler way to put it is that we can only get two pivots in the matrix using RREF, thus the original columns would be the basis for the vector space. 
+\end{proof}
+\subsection*{2.2} True or false:
+\begin{enumerate}[label=\alph*)]
+    \item Any set containing the zero vector is linearly dependent;
+    \item A basis must contain 0;
+    \item subsets of linearly dependent sets are linearly dependent;
+    \item subsets of linearly independent sets are linearly independent; 
+    \item If $\alpha_1v_1 + \alpha_2v_2 + \ldots + \alpha_nv_n = 0$, then all scalars $\alpha_k$ are zero;
+\end{enumerate}
+\subsection*{2.3} Recall, that a matrix is called symmetric if $A^T = A$. Write down a basis in the space of symmetric $2 \times 2$ matrices. How many elements are in the basis? 
+\begin{proof}
+    $\begin{pmatrix}
+        a & b \\
+        b & c
+    \end{pmatrix} 
+    $
+    is the format for these symmetric matrices. Now, using a linear combination to represent this: 
+    $
+    a\begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix}
+    +
+    b\begin{pmatrix}
+        0 & 1 \\ 
+        1 & 0
+    \end{pmatrix}
+    + 
+    c \begin{pmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    $
+    The vectors next to the coefficients are the elements of the basis. 
+\end{proof}
+\subsection*{2.4} Write down a basis for the space of
+\begin{enumerate}[label=\alph*)]
+    \item $3\times3$ symmetric matrices;
+    \item $n \times n$ symmetric matrices;
+    \item $n \times n$ antisymmetric $(A^T = -A)$ matrices;
+\end{enumerate}
+\subsection*{2.5} Let a system of vectors $v_1,v_2, \ldots, v_r$ be linearly independent but not generating. Show that it is possible to find a vector $v_{r+1}$ such that the system $v_1, v_2, \ldots, v_r, v_{r+1}$ is linearly independent. 
+\begin{proof}
+    Let's suppose that there is a vector $v_{r+1}$ that can be represented as the linear combination $\sum_{k=1}^{r}\alpha_kv_k$. Set up: $\alpha_{r+1}v_{r+1} = $
+\end{proof}
+\subsection*{2.6} Is it possible that vectors $v_1,v_2,v_3$ are linearly dependent, but the vectors $w_1 = v_1+v_2$, $w_2 = v_2+v_3$, $w_3 = v_3 +v_1$ are linearly independent? 
+\end{document}

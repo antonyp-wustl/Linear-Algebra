@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/HOMEWORK1.aux": true,
+        "**/HOMEWORK1.log": true,
+        "**/HOMEWORK1.gz": true,
+        "**/HOMEWORK1.out": true
+    }
+}
