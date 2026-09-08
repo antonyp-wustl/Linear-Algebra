@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  27 AUG 2026 12:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  26 AUG 2026 21:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex"
-(/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex
+**"/Users/antony/Documents/linear algebra/Linear-Algebra/HOMEWORK1.tex"
+(/Users/antony/Documents/linear algebra/Linear-Algebra/HOMEWORK1.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsart.cls
@@ -151,7 +151,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./HOMEWORK1.aux)
+) [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./HOMEWORK1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -159,17 +159,17 @@ L3 programming layer <2026-01-19>
  ) 
 Here is how much of TeX's memory you used:
  2491 strings out of 467525
- 34404 string characters out of 5418982
- 450756 words of memory out of 5000000
+ 34371 string characters out of 5418982
+ 448756 words of memory out of 5000000
  31271 multiletter control sequences out of 15000+600000
  633526 words of font info for 63 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 71i,8n,79p,475b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,8n,79p,464b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on HOMEWORK1.pdf (3 pages, 146020 bytes).
+Output written on HOMEWORK1.pdf (2 pages, 142754 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

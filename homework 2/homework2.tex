@@ -1,0 +1,204 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amsthm,amssymb,enumitem}
+\title{Homework 2}
+\author{Antony Perez}
+
+\begin{document}
+\maketitle
+\subsection*{3.1} Multiply 
+\begin{enumerate}[label=\alph*)]
+\item $\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix} \begin{pmatrix} 1 \\ 3 \\ 2 \end{pmatrix} = \begin{pmatrix} 13 \\ 31 \end{pmatrix}$
+\item $\begin{pmatrix} 1 & 2 \\ 0 & 1 \\ 2 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 3 \end{pmatrix} = \begin{pmatrix} 7 \\ 3 \\ 2 \end{pmatrix}$
+\item $\begin{pmatrix} 1 & 2 & 0 & 0 \\ 0 & 1 & 2 & 0 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 5 \\ 8 \\ 11 \\ 4 \end{pmatrix}$
+\item $\begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} = \text{impossible, matrix dimensions}$.
+\end{enumerate}
+\subsection*{3.2} Let a linear transformation in $\mathbb{R}^2$ be a reflection in the line $x_1 = x_2$. Find the matrix.
+\begin{proof}
+    $\begin{bmatrix}
+        0 & 1 \\ 1 & 0
+    \end{bmatrix}$
+\end{proof}
+\subsection*{3.3} For each linear transformation below, find its matrix:
+\begin{enumerate}[label=\alph*)]
+\item $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ defined by $T(x,y)^T = (x+2y, 2x-5y, 7y)^T$;
+\item $T : \mathbb{R}^4 \rightarrow \mathbb{R}^3$ defined by $T(x_1,x_2,x_3,x_4)^T = (x_1 +x_2 +x_3 + x_4, x_2 - x_4, x_1 + 3x_2 + 6x_4)^T$;
+\item $T : \mathbb{P}_n \rightarrow \mathbb{P}_n, Tf(t) = f'(t)$;
+\item $T : \mathbb{P}_n \rightarrow \mathbb{P}_n, Tf(t) = 2f(t)+3f'(t)-4f''(t)$.
+\end{enumerate}
+\begin{proof}
+    \textbf{A.} $\begin{bmatrix} 1 & 2 \\ 2 & -5 \\ 0 & 7  \end{bmatrix}$
+    \textbf{B.} $\begin{bmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & -1 \\ 1 & 3 & 0 & 4 \end{bmatrix}$
+    \textbf{C.} $\begin{bmatrix} 0 & 1 & 0 & \ldots & 0 \\ 0 & 0 & 2 & \ldots  & 0 \\ \vdots & \vdots & \ddots & \ddots & \vdots \\ 0 & 0 & \ldots & \ddots & n \\ 0& 0 & \ldots & \ldots & 0 \end{bmatrix}$
+    \textbf{D.} $\begin{bmatrix} 2 & 3 & -8 & \ldots & 0 \\ 0 & 2 & 6 & \ldots  & 0 \\ \vdots & \vdots & \ddots & \ddots & \vdots \\ 0 & 0 & \ldots & \ddots & 3n \\ 0& 0 & \ldots & \ldots & 2 \end{bmatrix}$
+\end{proof}
+\subsection*{3.4} Find $3 \times 3$ matrices representing the transformations of $\mathbb{R}^3$ which: 
+\begin{enumerate}[label=\alph*)]
+\item project every vector onto $x-y$ plane;
+\item reflect every vector through $x-y$ plane;
+\item rotate the $x-y$ plane through $30 \deg $, leaving $z$-axis alone.
+\end{enumerate}
+\begin{proof}
+    \textbf{A.} $\begin{bmatrix} 1 &0 & 0 \\ 0 & 1 & 0 \\ 0& 0 & 0 \end{bmatrix}$ \textbf{B.} $\begin{bmatrix} 1 &0 & 0 \\ 0 & 1 & 0 \\ 0& 0 & -1  \end{bmatrix}$ \textbf{C.} $\begin{bmatrix} \cos 30 & -\sin 30 & 0 \\ \sin 30 & \cos 30 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{proof}
+\subsection*{3.5} Let $A$ be a linear transformation. If $z$ is the center of the straight interval $[x,y]$, show that $Az$ is the center of the interval $[Ax,Ay]$.
+\begin{proof}
+    Let $z = \frac{x+y}{2}$. Since $A$ is a linear transformation, then $z$ works by $\frac{1}{2}(Ax + Ay)$ through scalar multiplication and vector addition defined by the linear transformation. This would also represent the center of $[Ax,Ay]$.  
+\end{proof} 
+\subsection*{3.6} The set $\mathbb{C}$ of complex numbers can be identified with the space $\mathbb{R}^2$ by treating each $z = x + iy \in \mathbb{C}$ as a column $(x,y)^T \in \mathbb{R}^2$.
+\begin{enumerate}[label=\alph*)]
+   \item Treating $\mathbb{C}$ as a complex vector space, show that the multiplication by $\alpha = a + ib \in \mathbb{C}$ is a linear transformation in $\mathbb{C}$. What is its matrix?
+    
+    \item Treating $\mathbb{C}$ as the real vector space $\mathbb{R}^2$ show that the multiplication by $\alpha = a + ib$ defines a linear transformation there. What is its matrix?
+    
+    \item Define $T(x+iy) = 2x-y+i(x-3y)$. Show that this transformation is not a linear transformation in the complex vectors space $\mathbb{C}$, but if we treat $\mathbb{C}$ as the real vector space $\mathbb{R}^2$ then it is a linear transformation there (i.e. that $T$ is a \textit{real linear} but not a \textit{complex linear} transformation).\\
+    Find the matrix of the real linear transformation $T$.
+\end{enumerate}
+\begin{proof}
+    \textbf{A.} It would be a 1x1 matrix of the form $\begin{bmatrix}  1  \end{bmatrix}$. $T(\alpha z) = \alpha T(z)$. $T(\alpha(u+z)) = \alpha T(u+z)$.
+    \textbf{B.} The matrix is $\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$.
+    \textbf{C.} This isn't possible due to the 1x1 matrix limitation set by $\mathbb{C}$. And, since $A$ cannot contain any variables, this is immediately false under the supposition that $T$ over $ \mathbb{C}$ is a linear transformation. And that $T$ is a linear transformation under $\mathbb{R}^2$, given by $A = \begin{bmatrix} 2 & -1 \\ 1 & -3   \end{bmatrix}$
+\end{proof}
+\subsection*{3.7} Show that any linear transformation in $\mathbb{C}$ is a multiplication by $\alpha \in \mathbb{C}$.
+\begin{proof}
+    The basis of $\mathbb{C}$ is the 1x1 standard basis. Thus, we let $A = [1]$. Since $\alpha \in \mathbb{C}$, we can represent $\alpha$ as $x+iy$. Now, we may show that $T(1) = \alpha$, making this statement true, since now we can show that $T(z\alpha) = z\alpha$. 
+\end{proof}
+\subsection*{5.1} Let
+\[
+A = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}, \quad 
+B = \begin{pmatrix} 1 & 0 & 2 \\ 3 & 1 & -2 \end{pmatrix}, \quad 
+C = \begin{pmatrix} 1 & -2 & 3 \\ -2 & 1 & -1 \end{pmatrix}, \quad 
+D = \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}
+\]
+\begin{enumerate}[label=\alph*)]
+\item Mark all the products that are defined, and give the dimensions of the result: $AB, BA, ABC, ABD, BC, BC^T, B^T C, DC, D^T C^T$.
+\item Compute $AB, A(3B + C), B^T A, A(BD), (AB)D$.
+\end{enumerate}
+\begin{proof}
+    $
+A\in M_{2\times2},\qquad
+B,C\in M_{2\times3},\qquad
+D\in M_{3\times1}.
+$
+
+$
+AB =2\times3\\
+BA =\text{undefined}\\
+ABC = \text{undefined}\\
+ABD = 2\times1\\
+BC =\text{undefined}\\
+BC^T = 2\times2\\
+B^TC =3\times3\\
+DC =\text{undefined}\\
+D^TC^T = 1\times2
+$
+
+\[
+AB=
+\begin{pmatrix}
+7&2&-2\\
+6&1&4
+\end{pmatrix}.
+\]
+
+\[
+A(3B+C)=
+\begin{pmatrix}
+18&6&-5\\
+19&-2&20
+\end{pmatrix}.
+\]
+
+\[
+B^TA=
+\begin{pmatrix}
+10&5\\
+3&1\\
+-4&2
+\end{pmatrix}.
+\]
+
+\[
+A(BD)=
+\begin{pmatrix}
+-8\\
+-4
+\end{pmatrix}.
+\]
+
+\[
+(AB)D=
+\begin{pmatrix}
+-8\\
+-4
+\end{pmatrix}.
+\]
+\end{proof}
+\subsection*{5.2} Let $T_\gamma$ be the matrix of rotation by $\gamma$ in $\mathbb{R}^2$. Check by matrix multiplication that $T_\gamma T_{-\gamma} = T_{-\gamma} T_\gamma = I$
+\begin{proof}
+    Let $T_\gamma = \begin{pmatrix} \cos \gamma & -\sin \gamma \\ \sin \gamma & \cos \gamma \end{pmatrix}$ and $T_{-\gamma} = \begin{pmatrix} \cos \gamma & \sin \gamma \\ -\sin \gamma & \cos \gamma \end{pmatrix}$. Either matrix can be multiplied commutatively because of the properties of cosine and sine, giving us the identity $\cos^2(\gamma) + \sin^2(\gamma)=1$. 
+\end{proof}
+\subsection*{5.3} Multiply two rotation matrices $T_\alpha$ and $T_\beta$ (it is a rare case when the multiplication is commutative, i.e. $T_\alpha T_\beta = T_\beta T_\alpha$, so the order is not essential). Deduce formulas for $\sin(\alpha + \beta)$ and $\cos(\alpha + \beta)$ from here.
+\begin{proof}
+   $ \begin{pmatrix}
+\cos\alpha & -\sin\alpha\\
+\sin\alpha & \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\beta & -\sin\beta\\
+\sin\beta & \cos\beta
+\end{pmatrix} = \begin{pmatrix}
+\cos\alpha\cos\beta-\sin\alpha\sin\beta
+&
+-\cos\alpha\sin\beta-\sin\alpha\cos\beta
+\\
+\sin\alpha\cos\beta+\cos\alpha\sin\beta
+&
+\cos\alpha\cos\beta-\sin\alpha\sin\beta
+\end{pmatrix}$
+You're essentially rotating by $\beta$, then rotating by $\alpha$, therefore $T_{\alpha + \beta}$ is the same thing, which would give us the geometric formulas asked of us. 
+\end{proof}
+
+\subsection*{5.4}Find the matrix of the orthogonal projection in $\mathbb{R}^2$ onto the line $x_1 = -2x_2$.
+\begin{proof}
+    $ \frac{1}{5} \begin{bmatrix} 4 & -2 \\ -2 & 1 \end{bmatrix}$
+\end{proof}
+
+\subsection*{5.5} Find linear transformations $A, B : \mathbb{R}^2 \to \mathbb{R}^2$ such that $AB = \mathbf{0}$ but $BA \neq \mathbf{0}$.
+
+\begin{proof}$
+ A =   \begin{bmatrix}
+        1 & 0 \\ 0 & 0 
+    \end{bmatrix}
+    B = \begin{bmatrix}
+        0 & 0 \\ 1 & 0
+    \end{bmatrix}
+$
+\end{proof}
+
+\subsection*{5.6} Prove that trace$(AB) = \text{trace}(BA)$.
+\begin{proof}
+    $\begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} w & x \\ y & z \end{bmatrix} = \begin{bmatrix} aw + by & ax + bz \\ cw+dy & xc + dz \end{bmatrix}$. Trace$(AB)$ = $ax+by+xc+dz$ \\
+    $\begin{bmatrix}
+        w &x \\ y & z 
+    \end{bmatrix} \begin{bmatrix}
+        a & b \\ c & d
+    \end{bmatrix} = \begin{bmatrix}
+        wa + xc & wb + xd \\ ya + zc & yb + zd
+    \end{bmatrix}$ Trace$(BA) = wa + xc + yb + zd$. \\
+    Therefore, both traces are equivalent.
+\end{proof}
+\subsection*{5.7}Construct a non-zero matrix $A$ such that $A^2 = 0$.
+\begin{proof}
+    Let $A = \begin{bmatrix}
+        a & b \\ c & d
+    \end{bmatrix}$, where $A^2 = \begin{bmatrix}
+        a^2 + bc & ab + bd \\ ca + dc & bc + d^2
+    \end{bmatrix}$. We know that $a,b,c,d$ cannot all be simultaneously zero, but $A^2$ must be zero. We can deduce that $a,d$ are zero, and either $b,c$ can be zero, but not both, or else this would violate our non-zero matrix. Let $b = 0$. Now, we see $A^2 = 0$, and $c$ is the only entry that isn't a zero in $A$. 
+\end{proof}
+\subsection*{5.8} Find the matrix of the reflection through the line $y = -2x/3$. Perform all the multiplications. 
+\begin{proof}
+    $\frac{1}{13} \begin{bmatrix} 3 & 2 \\ -2 & 3 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 3 & -2 \\ 2 & -3 \end{bmatrix} = \frac{1}{13}\begin{bmatrix} 5 & -12 \\ -12 & -5 \end{bmatrix}$
+\end{proof}
+
+\end{document}

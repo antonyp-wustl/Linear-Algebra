@@ -24,6 +24,11 @@ Let $x = (1,2,3)^{T}$, $y=(y_1,y_2,y_3)^{T}$, $z=(4,2,1)^{T}$. Compute $2x$, $3y
 \begin{proof}
     A is a vector space. Given two distinct functions $f$ and $g$, and some $x \in [0,1]$, we can define vector addition and scalar multiplication as such: $(f+g)(x) = f(x)+g(x)$; $(\alpha f)(x) = \alpha f (x)$, where $\alpha \in \mathbb{R}$. 
 
+    B is not a vector space. The set of all non-negative functions fail to be a vector space when we choose a function $f$ and multiply it by a scalar $\alpha < 0$. 
+
+    C is not a vector space. Addititive inverses exist. 
+
+    D is a vector space. Because of the symmetric properties, scalar multiplication and vector addition would also give symmetric matrices. The zero vector is symmetric. 
 \end{proof}
 \subsection*{1.3} True or false:
 \begin{enumerate}[label=\alph*)]
@@ -68,7 +73,6 @@ Let $x = (1,2,3)^{T}$, $y=(y_1,y_2,y_3)^{T}$, $z=(4,2,1)^{T}$. Compute $2x$, $3y
     0 & 0 \\
     0 & 0 \\
 \end{pmatrix}, \ldots,
-
 \begin{pmatrix}
     0 & 0 \\
     0 & 0 \\
@@ -84,6 +88,9 @@ Let $x = (1,2,3)^{T}$, $y=(y_1,y_2,y_3)^{T}$, $z=(4,2,1)^{T}$. Compute $2x$, $3y
     \item subsets of linearly independent sets are linearly independent; 
     \item If $\alpha_1v_1 + \alpha_2v_2 + \ldots + \alpha_nv_n = 0$, then all scalars $\alpha_k$ are zero;
 \end{enumerate}
+\begin{proof}
+    TFFTF
+\end{proof}
 \subsection*{2.3} Recall, that a matrix is called symmetric if $A^T = A$. Write down a basis in the space of symmetric $2 \times 2$ matrices. How many elements are in the basis? 
 \begin{proof}
     $\begin{pmatrix}
@@ -116,9 +123,36 @@ Let $x = (1,2,3)^{T}$, $y=(y_1,y_2,y_3)^{T}$, $z=(4,2,1)^{T}$. Compute $2x$, $3y
     \item $n \times n$ symmetric matrices;
     \item $n \times n$ antisymmetric $(A^T = -A)$ matrices;
 \end{enumerate}
+\begin{proof}
+    A $3 \times 3$ symmetric matrix can be represented as $\begin{pmatrix}
+        a & b & d \\ 
+        b & c & e \\
+        d & e & f \\ 
+    \end{pmatrix}$.
+     So, the basis would be $ 
+     \begin{pmatrix}
+        1 & 0 & 0\\
+        0 & 0 & 0\\ 
+        0 & 0 & 0\\ 
+    \end{pmatrix} , \ldots ,  
+    \begin{pmatrix}
+       0& 0& 0 \\ 
+        0&0&0\\ 
+        0&0&1 \\
+    \end{pmatrix}
+    $.
+For B, we know symmetric matrices entail $e_{ij} = e_{ji}$, where $a_ii$ can be any number. We can define that set to be $\{e_{ii} : 1 \leq i \leq n\} \text{ or } \sum_{i=1}^{n}e_{ii}$.
+Now we must deal with the subdiagonals, corners and such. We can do such with the following: $\sum_{i=1}^{n}\sum_{j=1}^{i-1}e_{ij}$ for the upper diagonal and $\sum_{j=1}^{n}\sum_{i=1}^{j-1}e_{ij}$.
+We can simply rewrite this as $e_{ij} + e_{ji}$, giving us the upper and lower diagonal. Thus, we can create the basis set to be $\{e_{ii}: 1 \leq i \leq n\} \cup \{e_{ij} + e{ji} : 1 \leq i < j \leq n \}$.
+For C, anti-symmetric matrcies must have zeros along the diagonal. So, $\{e_{ii} = 0: 1 \leq i \leq n\}$. Now for the negatives, we can simply make the upper triangle or the lower triangle the negative, so let's define that as $\{e_{ij} - e_{ji} : 1 \leq i < j \leq n\}$. So for anti-symmetric sets, $\{e_{ii} = 0: 1 \leq i \leq n\} \cup \{e_{ij} - e_{ji} : 1 \leq i < j \leq n \}$
+
+\end{proof}
 \subsection*{2.5} Let a system of vectors $v_1,v_2, \ldots, v_r$ be linearly independent but not generating. Show that it is possible to find a vector $v_{r+1}$ such that the system $v_1, v_2, \ldots, v_r, v_{r+1}$ is linearly independent. 
 \begin{proof}
-    Let's suppose that there is a vector $v_{r+1}$ that can be represented as the linear combination $\sum_{k=1}^{r}\alpha_kv_k$. Set up: $\alpha_{r+1}v_{r+1} = $
+There must lie a vector $v_{r+1}$ that completes the span of $V$. We see that $v_1,v_2, \ldots, v_r$ doesn't span $V$. We are also assuming that adding $v_{r+1}$ to the system is also independent. So, let's check this linear indpendence by setting $c_1v_1+\ldots+c_rv_r+c_{r+1}v_{r+1}=0$. Manipulating this expression gives us $v_{r+1} = -\frac{1}{c_{r+1}}(c_1v_1 + \ldots + c_rv_r)$. This shows that $v_{r+1}$ is in the span of the collection, which is contradictory to our supposition. Therefore, $c_{r+1}$ must be equal to zero. This gives us $c_1v_1+c_2v_2+ \ldots+ c_rv_r = 0$, which implies that $\sum_{i=1}^{r}|c_i|=0$, showing linear independence. 
 \end{proof}
 \subsection*{2.6} Is it possible that vectors $v_1,v_2,v_3$ are linearly dependent, but the vectors $w_1 = v_1+v_2$, $w_2 = v_2+v_3$, $w_3 = v_3 +v_1$ are linearly independent? 
+\begin{proof}
+    This is immediately false since $v_2 = (w_1 + w_2 - w_3)/2$. Using that result, you can get every other vector $v_i$. 
+\end{proof}
 \end{document}

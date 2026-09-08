@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1787850404.0714 "/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex" "HOMEWORK1.pdf" "HOMEWORK1" 1787850404.29771 0
-  "/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex" 1787850403.91159 5886 abc5652b5faa36bd008a9ae9d336925c ""
+["pdflatex"] 1788115405.43697 "/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex" "HOMEWORK1.pdf" "HOMEWORK1" 1788115405.69108 0
+  "/Users/antony/Documents/linear algebra/Linear-Algebra/homework 1/HOMEWORK1.tex" 1788115404.89053 8167 0f975a6850f1beb6c7e975123716aefd ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -22,8 +22,10 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -32,7 +34,6 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
-  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsart.cls" 1591045760 61881 a7369c346c2922a758ae6283cc1ed014 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty" 1591045760 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -50,8 +51,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1787771259 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "HOMEWORK1.aux" 1787850404.27002 1575 628e9a8bd3172685479fc522cf275d79 "pdflatex"
-  "HOMEWORK1.tex" 1787850403.91159 5886 abc5652b5faa36bd008a9ae9d336925c ""
+  "HOMEWORK1.aux" 1788115405.65968 1575 e6c80e3344f00f136872a6f07ec0cce2 "pdflatex"
+  "HOMEWORK1.tex" 1788115404.89053 8167 0f975a6850f1beb6c7e975123716aefd ""
   (generated)
   "HOMEWORK1.aux"
   "HOMEWORK1.log"
