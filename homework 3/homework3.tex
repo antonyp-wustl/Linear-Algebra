@@ -1,0 +1,88 @@
+\documentclass{amsart}
+\usepackage{amsmath,amsthm,amssymb,enumitem}
+\title{Homework 3}
+\author{Antony Perez}
+\begin{document}
+\maketitle
+\subsection*{6.1} Prove, that if $A: V \rightarrow W$ is an isomorphism and $v_1,v_2,\ldots,v_n$ is a basis in $V$, then $Av_1,Av_2,\ldots,Av_n$ is a basis in $W$.
+\begin{proof}
+    Let $v \in V$ and $w \in W$ be arbitrary vectors. Then, $v = \sum_{i=1}^{n}a_iv_i$. Then, applying the transformation, $w = Av = A\sum_{i=1}^{n}a_iv_i$. Thus, we see $w = Av$ spans $W$ since $w$ was arbitrary.
+    $V$'s basis is linearly independent by definition. Thus, $\sum_{i=1}^{n}a_iv_i = 0 \implies \sum_{i=1}^{n}|a_i| = 0$. Using this, $A\sum_{i=1}^{n}a_iv_i = 0w$. We know $\sum_{i=1}^{n}a_iv_i$ is linearly independent, therefore $A\sum_{i=1}^{n}a_iv_i$ must be a basis for $W$. 
+\end{proof}
+\subsection*{6.2} Find all right inverses to the $1 \times 2$ matrix $A= [1,1]$. Conclude that $A$ is not left invertible.
+\begin{proof}
+    Let $B$ be an arbitrary right inverse. $\begin{bmatrix}
+        1 & 1
+    \end{bmatrix} \begin{bmatrix}
+        b_1 \\ b_2
+    \end{bmatrix} = \begin{bmatrix}
+        b_1 + b_2
+    \end{bmatrix}$. From this, we must show that $b_1 + b_2 = 1$. We show $b_1 = 1 - b_2$. Thus, $B$ is of the form of $\begin{bmatrix}
+        1-b_2 \\ b_2
+    \end{bmatrix}$. $A$ cannot have a left inverse, because it would produce a $2\times 2$ matrix of the form $\begin{bmatrix}
+        b_1 & b_1 \\ b_2 & b_2 
+    \end{bmatrix}$. Since $b_1,b_2 \in \mathbb{R}$, there exists an $n \in \mathbb{R}$ such that $b_1 = nb_2$. Therefore, the matrix is not linearly independent, showing it cannot be inverted. 
+\end{proof}
+\subsection*{6.3} Find all left inverses of the column $(1,2,3)^T$
+\begin{proof}
+    Yes,   $\begin{bmatrix}
+        1 - 2b_2 - 3b_3 & b_2 & b_3
+    \end{bmatrix}$. We derive this from $BA = I$. 
+\end{proof}
+\subsection*{6.4} Is the column $(1,2,3)^T$ right invertible? Justify. 
+\begin{proof}
+   No. If you perform matrix multiplication, you will get a $3\times3$ matrix that is linearly dependent, which wouldn't work since $I$ is linearly independent. 
+\end{proof}
+\subsection*{6.5} Find two matrices $A$ and $B$ that $AB$ is invertible, but $A$ and $B$ are not. 
+\begin{proof}
+    $A = \begin{bmatrix}
+     1 & 0 
+    \end{bmatrix}, \ B = \begin{bmatrix}
+        1 \\ 0
+    \end{bmatrix}, AB = \begin{bmatrix}
+        1 
+    \end{bmatrix}$
+\end{proof}
+\subsection*{6.6} Suppose the product $AB$ is invertible. Show that $A$ is right invertible and $B$ is left invertible.
+\begin{proof}
+    Let $AB: V \rightarrow W$. Since $AB$ is invertible, define $(AB)^{-1}: W \rightarrow V$. Since $AB$ is invertible, that means $(AB)^{-1}AB = AB(AB)^{-1}=I$. Using associativity rules, we see that $A$ has a right inverse and $B$ has a left inverse. 
+\end{proof}
+\subsection*{6.7} Let $A$ and $AB$ be invertible. Prove that $B$ is invertible.
+\begin{proof}
+    Let $(AB)^{-1}$ be the inverse of $AB$ and $A^{-1}$ be the inverse for $A$. We show $B$ is left invertible by associativity: $(AB)^{-1}AB = ((AB)^{-1}A)B = I$. To show $B$ is right invertible, $A(B(AB)^{-1})= I \rightarrow B(AB)^{-1} = A^{-1}$. Since $A$ is invertible, $B((AB)^{-1}A)= I$. Thus, $B$ is invertible. 
+\end{proof}
+\subsection*{6.8} Let $A$ be $n \times n$ matrix. Prove that if $A^2 = 0$ then $A$ is not invertible.
+\begin{proof}
+    Assume for contradiction that $A$ is invertible. We may rewrite $A^2 = A A = 0$. Applying invertibility, $A = 0 A^{-1} = 0$. $A = 0$ is a contradictino, since the zero vector is not invertible. Therefore, $A$ is not invertible. 
+\end{proof}
+\subsection*{6.9} Suppose $AB=0$ for some non-zero matrix $B$. Can $A$ be invertible? Justify. 
+\begin{proof}
+    No. Assume $A$ is invertible. $AB = 0 \rightarrow B = 0 A^{-1} = 0$. $B \neq 0$, contradiction. Therefore $A$ isn't invertible.  
+\end{proof}
+\subsection*{6.10} Write matrices of the linear transformations $T_1$ and $T_2$ in $\mathbb{F}^5$, defined as follows: $T_1$ interchanges the coordinates $x_2$ and $x_4$ of the vector $x$, and $T_2$ just adds to the coordinate $x_2$  $a$ times the coordinate $x_4$, and does not change other coordinates.
+\[    T_1 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_4 \\ x_3 \\ x_2 \\ x_5 \end{pmatrix}, \ \ \ \ \ T_2 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 + \alpha x_4 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix}                 ;    \]
+Show that $T_1$ and $T_2$ are invertible transformations, and write the matrices of the inverses.
+\begin{proof}
+    By looking, we see that $T_1 = \begin{bmatrix}
+        1 &0&0&0&0 \\ 
+        0&0&0&1&0 \\ 
+        0&0&1&0&0 \\ 
+        0&1&0&0&0 \\ 
+        0&0&0&0&1
+    \end{bmatrix}$ and $T_2 = \begin{bmatrix}
+        1 &0&0&0&0 \\ 
+        0&1&0&\alpha&0 \\ 
+        0&0&1&0&0 \\ 
+        0&0&0&1&0 \\ 
+        0&0&0&0&1
+    \end{bmatrix}$. Firstly, notice these are $5 \times 5$ matrices, so they meet that condition. $T_1$ is invertible because we can perform a row swap between $R_2$ and $R_4$, giving us $I$. For $T_2$, we can multiply $R_4$ by $\alpha$, and let $R_2 = R_2 - \alpha R_4$, thus giving us the identity matrix. Thus, both of these are invertible. 
+    By augmenting our $T_1$ and $T_2$ with $I$, we see that $T_1 = T_1^{-1}$. and $T_2^{-1} = \begin{bmatrix}
+         1 &0&0&0&0 \\ 
+        0&1&0&-\alpha&0 \\ 
+        0&0&1&0&0 \\ 
+        0&0&0&1&0 \\ 
+        0&0&0&0&1
+    \end{bmatrix}$
+\end{proof}
+
+\end{document}
