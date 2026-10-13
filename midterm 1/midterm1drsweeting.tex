@@ -1,0 +1,197 @@
+\documentclass[11pt,addpoints]{exam}
+\usepackage{amsmath, amssymb,amsthm, mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\Ker}{ker}
+
+\pointsinleftmargin
+\pointformat{[\thepoints]}
+\bracketedpoints
+
+\firstpageheader{}{}{}
+\firstpagefooter{}{Please do not open this exam packet unless you are instructed to do so.}{}
+\runningheader{MATH 4301/5031, Fall 2026}{Practice Midterm 1, Page \thepage\ of \numpages}{}
+\runningheadrule
+\runningfooter{}{}{}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[b]{0.72\textwidth}
+MATH 4301/5031 \quad {\LARGE\bfseries Practice Midterm 1}
+\end{minipage}%
+\begin{minipage}[b]{0.28\textwidth}
+\raggedleft\small\textsc{October 2, 2026}\\
+\textsc{Brandon Sweeting}
+\end{minipage}
+
+\vspace{1.5em}
+\noindent Full Name: Antony Perez
+
+\vspace{1em}
+\noindent\textbf{Instructions}
+\begin{enumerate}
+  \item Time limit: 50 minutes.
+  \item Answers should be completely justified unless otherwise noted.
+  \item Write your answers in the space provided. If you need more space, continue on the back. If you still need more space, use additional sheets of paper. Cross out any work that you do not want graded.
+\end{enumerate}
+
+\noindent\textbf{Frequently asked question}
+\begin{itemize}
+  \item Question: Do I need to show [X]? Can I assume [Y]?\\
+  Answer: Use your best judgment. You should write enough to demonstrate that you understand the concepts that the question is testing you on.
+\end{itemize}
+
+\noindent\textbf{Important note}
+\begin{itemize}
+  \item The exam contains problems of various difficulty levels. During the exam, please try to not think about your total score and instead focus on doing your best. Do not jump to any conclusions about your exam performance until after I have graded all the exams.
+\end{itemize}
+
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\newpage
+\begin{questions}
+
+%-------------------------------------------------- Q1
+\question[15] Determine whether each statement below is \textbf{true} or \textbf{false}. Briefly justify your answer.
+\begin{parts}
+  \part If $v_1, v_2, v_3$ are linearly dependent, then one is a linear combination of the other two.
+  
+  \begin{proof}
+    Yes. $c_1v_1 + c_2v_2 + c_3v_3 = 0 \implies v_1 = -\frac{1}{c_1}(c_2v_2 + c_3v_3)$
+  \end{proof}
+  \part Row operations preserve the row space of a matrix.
+  \begin{proof}
+    Yes. Gauss Jordan doesn't alter the space. 
+  \end{proof}
+  \part If $A, B \in \F^{n \times n}$ and $AB = I$, then $BA = I$.
+  \begin{proof}
+    Yes. Since $A,B$ are square matrices, then they are invertible.
+  \end{proof}
+  \part If $T : \F^5 \to \F^3$ is linear, then $\dim \Ker T \geq 2$.
+  \begin{proof}
+    This is true. Assume the best case scenario where there are 5 pivots in $\F^5$. Thus, in order to map to $\F^3$, we must remove two column vectors from the basis, which, in turn, go into the null space. Thus, $\dim \ker T \geq 2$.
+  \end{proof}
+  \part If $Ax = b$ has two distinct solutions, then $Ax = 0$ has infinitely many solutions.
+  \begin{proof}
+    True. Since there isn't a unique solution to some $b$, then there must be infinitely many solutions. In other words, if there is a solution, then every row contains a pivot, but not every column (due to non-uniqueness). Hence, there are free variables that can be parameterized, giving us infinite solutions. 
+  \end{proof}
+\end{parts}
+
+\newpage
+%-------------------------------------------------- Q2
+\question[20] Let $V$ be a finite-dimensional vector space over $\F$.
+\begin{parts}
+  \part Define what it means for vectors $v_1, \dots, v_m \in V$ to be linearly independent.
+  \begin{proof}
+    \[
+    a_1v_1 + \ldots + a_nv_n = 0 \implies \sum_{i=1}^{n}|a_i| = 0
+    \]
+  \end{proof}
+  \part Suppose $v_1, \dots, v_m$ are linearly independent. Prove that
+  \[
+    v_1 - v_2,\; v_2 - v_3,\; \dots,\; v_{m-1} - v_m,\; v_m
+  \]
+  are linearly independent.
+  \begin{proof}
+    Suppose
+    \[
+    c_1(v_1-v_2) + c_2(v_2-v_3) + \cdots + c_{m-1}(v_{m-1}-v_m) + c_m v_m = 0.
+    \]
+    Expanding gives
+    \[
+    c_1 v_1 + (c_2-c_1)v_2 + \cdots + (c_{m-1}-c_{m-2})v_{m-1} + (c_m-c_{m-1})v_m = 0.
+    \]
+    Since $v_1, \dots, v_m$ are linearly independent, each coefficient must be zero:
+    \[
+    c_1 = 0,\quad c_2-c_1 = 0,\quad \dots,\quad c_m-c_{m-1}=0.
+    \]
+    Hence $c_1 = c_2 = \cdots = c_m = 0$, so the vectors are linearly independent.
+  \end{proof}
+\end{parts}
+
+\newpage
+%-------------------------------------------------- Q3
+\question[20]
+\begin{parts}
+  \part Prove that there does not exist a linear map $T : \F^5 \to \F^2$ with
+  \[
+    \Ker T = \{(x_1, x_2, x_3, x_4, x_5) \in \F^5 : x_1 = 3x_2 \text{ and } x_3 = x_4 = x_5\}.
+  \]
+ 
+  \part Let $V$ be finite-dimensional vector space and let $S, T : V \to V$ be two linear transformations on $V$. Prove that the composition $ST$ is invertible if and only if both $S$ and $T$ are invertible.
+  \begin{proof}
+    Since $V$ is a vector space, $\exists v \in V$ such that $Tv = 0 \implies S(Tv) = S(0) = 0 \implies v = 0$. Thus, $S,T$ are injective by linearity. Now let $w \in V$ such that $STv = w$ for some $v$. Since $ST$ is invertible, it is also surjective, thus allowing us to do so. Since $\dim \ker T = 0$, $\dim$ Range $T = \dim V$. Thus, they have the same amount of vectors in their basis, thus $T = V$, hence $T$ is bijective, hence invertible. Range $S = V$, so $\dim$ Range $S = \dim V$, which implies $\dim \ker S = 0$. Thus, $S = V$, and $S$ is therefore bijective, and invertible. 
+
+    Conversely, if $S$ and $T$ are invertible, we can simply show that $T^{-1}S^{-1} = (ST)^{-1}$, which is the inverse of $ST$. 
+  \end{proof}
+\end{parts}
+
+\newpage
+%-------------------------------------------------- Q4
+\question[15] Consider the subset $V$ of $M_{2\times 2}(\R)$ given by
+\[
+  V = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} : a + b = c + d \right\}.
+\]
+\begin{parts}
+  \part Show that $V$ is a subspace of $M_{2\times 2}(\R)$.
+  \begin{proof}
+    Firstly, we show that $V$ is non-empty by considering the zero vector, which would be $a=b=c=d=0$. Now consider vectors $v,w \in V$ such that $v = \begin{pmatrix}
+      a_1 & b_1 \\ 
+      c_1 & d_1
+    \end{pmatrix}$ and $w = \begin{pmatrix}
+      a_2 & b_2 \\ 
+      c_2 & d_2
+    \end{pmatrix}$. We also consider scalars $\alpha, \beta \in \F$. We must show $\alpha v + \beta w \in V$. Doing so, we get $\begin{pmatrix}
+      \alpha a_1 + \beta a_2 & \alpha b_1 + \beta b_2 \\ 
+      \alpha c_1 + \beta c_2 & \alpha d_1 + \beta d_2 \\
+    \end{pmatrix}$, which follows the restriction of $a+b = c+d : (\alpha a_1 + \beta a_2) + (\alpha b_1 + \beta b_2) =         (\alpha c_1 + \beta c_2) + (\alpha d_1 + \beta d_2)$. Thus, $V$ is defined under vector addition and scalar multiplication. Hence, $V$ is a vector space, and, more importantly, a subspace of $M_{2 \times 2}(\R)$.
+  \end{proof}
+  \part Find a basis for $V$ (no need to justify).
+  \begin{proof}
+    We consider $(a+b = c+d),$ where we see $a + b - c = d$. Thus, $d$ is a free variable. Thus, we have $(a,b,c,a+b-c)$, where we have $a(1,0,0,1) + b(0,1,0,1) + c(0,0,1,-1)$. Thus, our basis is $\{\begin{bmatrix}
+      1 & 0 \\ 
+      0 & 1 
+    \end{bmatrix}, \begin{bmatrix}
+      0 & 1 \\ 0 & 1
+    \end{bmatrix}, \begin{bmatrix}
+      0 & 0 \\ 
+      1 & 1
+    \end{bmatrix}\}$
+  \end{proof}
+  \part Find $\dim V$.
+  
+\begin{proof}
+  $\dim V = 3$
+\end{proof}
+\end{parts}
+
+\newpage
+%-------------------------------------------------- Q5
+\question[30] Let $V$ be the subspace of $M_{2\times 2}(\R)$ from the previous problem, and define $T : V \to V$ by
+\[
+  T\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} a + b & b + 2c \\ a + b + c & b + c \end{pmatrix}.
+\]
+\begin{parts}
+  \part Show that $T$ maps $V$ into $V$ and that $T$ is a linear transformation.
+  \begin{proof}
+    To show mapping, we know $V$ has a condition where $a+ b = c + d$. Let's apply this rule to the transformation, and see if it maps: $(a+b) + (b + 2c) = (a+b+c)+(b+c)  = a+2b+2c$. Therefore, $T$ maps $V$ into $V$. To show $T$ is a linear transformation, we must show that it is closed under vector addition and scalar multiplication. Let $v,w \in V$, and let $\alpha \in \F$. Let $v = \begin{pmatrix} a_1 & b_1 \\ c_1 & d_1  \end{pmatrix}$ and $w=\begin{pmatrix} a_2 &b_2 \\ c_2& d_2  \end{pmatrix}$. Thus, $T(\alpha v) = \begin{pmatrix} \alpha a_1 + \alpha b_1 & \alpha b_1 + 2\alpha c_1\\ \alpha a_1 + \alpha b_1 + \alpha c_1 & \alpha b_1 + \alpha c_1      \end{pmatrix} = \alpha \begin{pmatrix} a_1 + b_1 & b_1 + 2c_1 \\ a_1 + b_1 + c_1 & b_1 + c_1 \end{pmatrix} = \alpha T(v)$. Thus, $T$ is linear in this way. Now we must show $T(v+w) = T(v)+T(w)$.  We can see $w+v = \begin{pmatrix} a_1 + a_2 & b_1 + b_2 \\ c_1 + c_2 & d_1 + d_2   \end{pmatrix}$. Applying the transformation, we see $T(u+v) = \begin{pmatrix} a_1 + a_2 + b_1 + b_2 & b_1 + b_2 + 2(c_1 + c_2) \\ a_1 + a_2 + b_1 + b_2 + c_1 + c_2 & b_1 + b_2 + c_1 + c_2  \end{pmatrix}$. Now, performing $T(v) = \begin{pmatrix} a_1 + b_1 & b_1 + 2c_1 \\ a_1 + b_1 + c_1 & b_1 + c_1  \end{pmatrix} $ and $T(w) =\begin{pmatrix} a_2 + b_2 & b_2 + 2c_2 \\ a_2 + b_2 + c_2 & b_2 + c_2  \end{pmatrix}$. Adding these two together, we see that $T(v)+T(w) = T(v+w)$. Thus, $T$ is linear.
+  \end{proof}
+  \part Find the matrix of $T$ with respect to the basis of $V$ you found in the previous problem.
+  \vspace{\stretch{1}}
+  \newpage
+  \part Show that $T$ is invertible, and compute the matrix of $T^{-1}$ with respect to the same basis.
+  \vspace{\stretch{1}}
+  \part Use your answer to (c) to find $A \in V$ such that
+  \[
+    T(A) = \begin{pmatrix} 1 & 2 \\ 3 & 0 \end{pmatrix}.
+  \]
+  \vspace{\stretch{1}}
+\end{parts}
+
+\end{questions}
+\end{document}

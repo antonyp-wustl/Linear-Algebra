@@ -1,0 +1,158 @@
+
+\documentclass[12pt]{amsart}
+
+%==================== Packages ====================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}              % paired delimiters, \coloneqq, etc.
+\usepackage{enumitem}               % control list labels
+\usepackage{bm}                     % bold math: \bm{v}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}  % load last
+
+\allowdisplaybreaks                 % let long align blocks break across pages
+\setlist[enumerate,1]{label=(\alph*)}  % problem parts as (a), (b), (c)
+
+%==================== Number systems ====================
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+%==================== Linear algebra ====================
+\DeclareMathOperator{\Ran}{Ran}         % range (Treil); \ker already exists
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\spn}{span}        % NOT \span: that's a TeX primitive
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\row}{Row}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\id}{id}
+\newcommand{\Mat}[2]{M_{#1\times #2}(\F)}   % \Mat{m}{n} -> M_{m x n}(F)
+\newcommand{\Pn}[1][n]{\mathcal{P}_{#1}}    % \Pn -> P_n, \Pn[3] -> P_3
+\newcommand{\tp}{^{\mathsf{T}}}             % A\tp -> A^T
+\newcommand{\inv}{^{-1}}                    % A\inv -> A^{-1}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+%==================== Analysis / topology ====================
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}    % NOT \int: that's the integral sign
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\pre}{^{\mathrm{pre}}}          % f\pre(V), Pugh's preimage
+\newcommand{\nbhd}[2]{N_{#1}(#2)}           % \nbhd{r}{p} -> N_r(p), Rudin
+\newcommand{\limn}{\lim_{n\to\infty}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}              % \int f(x)\dd x
+\newcommand{\restr}[2]{\left.#1\right|_{#2}}  % \restr{f}{A} -> f|_A
+\newcommand{\seq}[2][n]{\left(#2\right)_{#1\in\N}}  % \seq{p_n} -> (p_n)_{n in N}
+
+%==================== Delimiters (mathtools) ====================
+% \abs{x} normal size; \abs*{x} auto-sizes; \abs[\big]{x} manual size
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{#1}
+\DeclarePairedDelimiterX{\setof}[2]{\lbrace}{\rbrace}{#1 \,:\, #2}  % \setof{x\in\R}{x>0}
+
+%==================== Logic shortcuts ====================
+\newcommand{\contra}{\Rightarrow\!\Leftarrow}   % contradiction marker
+\newcommand{\st}{\text{ such that }}
+
+%==================== Theorem environments ====================
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}       % black box
+
+% Problem header using the textbook's exercise number: \begin{problem}{2.5}
+\newenvironment{problem}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\smallskip}
+% For computational answers that aren't proofs
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+%==================== Document ====================
+\title{Homework 6}
+\author{Antony Perez}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{problem}{8.1}
+    True or false:
+    \begin{enumerate}
+        \item[a)] Every change of coordinate matrix is square;
+        \item[b)] Every chance of coordinate matrix is invertible;
+        \item[c)] The matrices $A$ and $B$ are called similar if $B = Q^T AQ$ for some matrix $Q$;
+        \item[d)] The matrices $A$ and $B$ are called similar if $B = Q^{-1}AQ$ for some matrix $Q$;
+        \item[e)] Similar matrices do not need to be square.    
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{8.2}
+    Consider the system of vectors
+    \[(1,2,1,1)^T, (0,1,3,1)^T, (0,3,2,0)^T, (0,1,0,0)^T.\]
+    \begin{enumerate}
+        \item[a)] Prove that it is a basis in $\F^4$. Try to do minimal amount of computations.
+        \item[b)] Find the change of coordinate matrix that changes the coordinates in this basis to the standard coordinates in $\F^4$ (i.e to the coordinates in the standard basis $\mathbf{e}_1,\ldots,\mathbf{e}_4$). 
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{problem}{8.3}
+    Find the change of coordinates matrix that changes the coordinates in the basis $1,1+t$ in $\mathbb{P}_1$ to the coordinates in the basis $1-t,2t$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}{8.4}
+    Let $T$ be the linear operator in $F^2$ defined by 
+    \[T \begin{pmatrix}
+        x \\ y
+    \end{pmatrix} = \begin{pmatrix}
+        3x+y \\ x-2y
+    \end{pmatrix}\]
+    Find the matrix of $T$ in the standard basis and in the basis \[(1,1)^T, (1,2)^T\]
+\end{problem}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{8.6}
+    Are the matrices 
+    \[\begin{pmatrix}
+        1 & 3 \\ 2 & 2
+    \end{pmatrix} \text{ and } \begin{pmatrix}
+        0 & 2 \\ 4 & 2
+    \end{pmatrix}\]
+    similar? Justify.
+\end{problem}
+
+\begin{proof}
+    
+\end{proof}
+
+\end{document}

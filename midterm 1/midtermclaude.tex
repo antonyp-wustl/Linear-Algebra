@@ -1,0 +1,226 @@
+\documentclass[11pt,addpoints]{exam}
+\usepackage[letterpaper,margin=1in,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb}
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CC}{\mathcal{C}}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\gap}{\vspace{\stretch{1}}}
+
+\pagestyle{headandfoot}
+\firstpageheader{}{}{}
+\firstpagefooter{}{}{}
+\runningheader{MATH 4301/5031, Fall 2026}{}{Supplementary Practice Midterm 1, Page \thepage\ of \numpages}
+\runningheadrule
+\runningfooter{}{}{}
+
+\pointsinmargin
+\bracketedpoints
+\pointname{}
+
+\begin{document}
+
+%======================== COVER ========================
+\noindent\textbf{\large MATH 4301/5031 \hfill Supplementary Practice Midterm 1 \hfill Fall 2026}
+
+\vspace{1.5cm}
+\noindent\textbf{Full Name:} \rule{4.3in}{0.4pt}
+
+\vspace{1.2cm}
+\noindent\textbf{\large Instructions}
+\begin{enumerate}
+  \item \textbf{Part I} (Problems 1--5) follows the format of the practice midterm, with every problem pushed further. Time yourself: 75 minutes. \textbf{Part II} (Problems 6--8 and the Bonus) goes beyond it and is untimed.
+  \item Answers should be completely justified unless otherwise noted. Counterexamples must be explicit, and you should check that they work.
+  \item Do not use determinants, eigenvalues, or inner products.
+  \item Notation: $\F$ denotes $\R$ or $\C$. $\ker T$ and $\Ran T$ are the kernel and range of $T$. $\PP_n$ is the space of real polynomials of degree at most $n$, and $\PP$ is the space of all real polynomials. $E_{ij}$ is the matrix with a $1$ in entry $(i,j)$ and $0$ everywhere else.
+  \item Write your answers in the space provided. If you need more space, continue on the back.
+\end{enumerate}
+
+\vfill
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|l|c|c|c|c|c||c|c|c||c||c|}
+\hline
+Problem & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & Bonus & Total \\ \hline
+Points  & 24 & 18 & 22 & 14 & 22 & 15 & 15 & 20 & $+10$ & 150 \\ \hline
+Score   &    &    &    &    &    &    &    &    &       &     \\ \hline
+\end{tabular}
+\end{center}
+\vfill
+\begin{center}
+\textit{Do not turn the page until you start the clock.}
+\end{center}
+\newpage
+
+\begin{questions}
+
+%======================== PART I ========================
+\item[]\textbf{\large Part I}\par\medskip
+
+%------------------------ Problem 1 ------------------------
+\question[24] Determine whether each statement below is true or false. Briefly justify your answer with a proof or an explicit counterexample.
+\begin{parts}
+\part The map $T\colon \C \to \C$, $T(z) = \overline{z}$, is a linear transformation of $\C$ regarded as a vector space over $\C$.
+\gap
+\part Row operations preserve the column space of a matrix.
+\gap
+\part If $v_1, v_2, v_3 \in V$ are linearly dependent, then $v_3$ is a linear combination of $v_1$ and $v_2$.
+\gap
+\part If $A \in M_{m\times n}(\F)$ and the equation $Ax = b$ has exactly one solution for some $b \in \F^m$, then $Ax = c$ has at most one solution for every $c \in \F^m$.
+\gap
+\newpage
+\part If the columns of $A \in M_{m\times n}(\F)$ are linearly independent, then $A$ is right invertible.
+\gap
+\part If $X$ and $Y$ are subspaces of $V$ and $X \cup Y = V$, then $X = V$ or $Y = V$.
+\gap
+\part There exists a linear map $T\colon \R^5 \to \R^5$ with $\ker T = \Ran T$.
+\gap
+\part Every $4$-dimensional subspace of $\R^6$ and every $3$-dimensional subspace of $\R^6$ have a nonzero vector in common.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 2 ------------------------
+\question[18] Let $V$ be a vector space over $\F$.
+\begin{parts}
+\part Define what it means for vectors $v_1, \dots, v_m \in V$ to be \emph{linearly independent}, and what it means for them to be a \emph{basis} of $V$.
+\gap
+\part Using only the axioms of a vector space, prove that $\alpha 0 = 0$ for every $\alpha \in \F$. Then prove that if $\alpha \in \F$ and $v \in V$ satisfy $\alpha v = 0$, then $\alpha = 0$ or $v = 0$.
+\gap
+\newpage
+\part Let $v_1, \dots, v_n$ be a basis of $V$, and for $k = 1, \dots, n$ let $w_k = v_k + v_{k+1} + \dots + v_n$. Prove that $w_1, \dots, w_n$ is a basis of $V$.
+\gap
+\part Let $n \ge 2$ and let $v_1, \dots, v_n \in V$ be linearly independent. Determine, with proof, all $n$ for which the vectors
+\[
+v_1 + v_2,\quad v_2 + v_3,\quad \dots,\quad v_{n-1} + v_n,\quad v_n + v_1
+\]
+are linearly independent.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 3 ------------------------
+\question[22] \mbox{}
+\begin{parts}
+\part Let $U = \{x \in \F^6 : x_1 + x_2 + x_3 = 0 \text{ and } x_4 = x_5 = x_6\}$. Find the smallest positive integer $m$ for which there exists a linear map $T\colon \F^6 \to \F^m$ with $\ker T = U$. Prove that no smaller $m$ works, and write down such a $T$ explicitly for your value of $m$.
+\gap
+\part Let $V$ be finite-dimensional and let $S, T\colon V \to V$ be linear. Prove that if $ST$ is invertible, then $TS$ is invertible.
+\gap
+\newpage
+\part Show that the conclusion of (b) can fail when $V$ is infinite-dimensional: find linear maps $S, T\colon \PP \to \PP$ such that $ST = I$ but $TS$ is not invertible.
+\gap
+\part Now let $V$ be an arbitrary vector space, possibly infinite-dimensional, and let $S, T\colon V \to V$ be linear. Prove that if $STS$ is invertible, then $S$ and $T$ are both invertible.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 4 ------------------------
+\question[14] Let $V$ be the set of all $A \in M_{3\times 3}(\R)$ such that every row and every column of $A$ sums to $0$.
+\begin{parts}
+\part Show that $V$ is a subspace of $M_{3\times 3}(\R)$.
+\gap
+\part Find $\dim V$. Justify your answer by exhibiting a basis of $V$ and proving that it is a basis.
+\gap
+\newpage
+\part Let $W$ be the set of all $A \in M_{3\times 3}(\R)$ whose three row sums and three column sums are all equal to one another (the common value may depend on $A$). Prove that $W$ is a subspace of $M_{3\times 3}(\R)$ and that $\dim W = \dim V + 1$.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 5 ------------------------
+\question[22] Let $V = \{X \in M_{2\times 2}(\R) : X^T = X\}$, with basis $\BB = (E_{11},\ E_{12} + E_{21},\ E_{22})$. Let
+\[
+M = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix},
+\]
+and define $T\colon V \to V$ by $T(X) = M X M^T$.
+\begin{parts}
+\part Show that $T$ maps $V$ into $V$ and that $T$ is linear.
+\gap
+\part Find the matrix $[T]_{\BB}$ of $T$ with respect to $\BB$.
+\gap
+\part Show that $T$ is invertible, and compute $[T^{-1}]_{\BB}$.
+\gap
+\newpage
+\part Find $X \in V$ such that $T(X) = \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix}$.
+\gap
+\part The matrices
+\[
+C_1 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \qquad
+C_2 = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}, \qquad
+C_3 = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}
+\]
+form a basis $\CC$ of $V$. Write down the change-of-coordinates matrix that converts $\CC$-coordinates into $\BB$-coordinates, and use it to compute $[T]_{\CC}$.
+\gap
+\end{parts}
+\newpage
+
+%======================== PART II ========================
+\uplevel{\textbf{\large Part II}\par\medskip}
+
+%------------------------ Problem 6 ------------------------
+\question[15] Let $D\colon \PP_3 \to \PP_3$ be differentiation, $Dp = p'$, and let $T = I - D$, so that $(Tp)(t) = p(t) - p'(t)$.
+\begin{parts}
+\part Write down the matrices of $D$ and of $T$ with respect to the basis $1, t, t^2, t^3$ of $\PP_3$.
+\gap
+\part Let $N\colon V \to V$ be a linear map on any vector space $V$ such that $N^k = 0$ for some $k \ge 1$. Prove that $I - N$ is invertible, with
+\[
+(I - N)^{-1} = I + N + N^2 + \dots + N^{k-1}.
+\]
+Deduce that $T$ is invertible, and write down the matrix of $T^{-1}$ with respect to $1, t, t^2, t^3$.
+\gap
+\newpage
+\part Without row reducing anything, find the unique $p \in \PP_3$ with $p(t) - p'(t) = t^3 - 3t^2 + 1$.
+\gap
+\part Prove that $p \mapsto p - p'$ is an invertible linear map $\PP \to \PP$, even though differentiation $D\colon \PP \to \PP$ is not invertible.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 7 ------------------------
+\question[15] For a square matrix $X = (x_{ij})$, let $\tr X = \sum_i x_{ii}$.
+\begin{parts}
+\part Let $A \in M_{m\times n}(\F)$ and $B \in M_{n\times m}(\F)$. Prove that $\tr(AB) = \tr(BA)$. (Note that $AB$ and $BA$ have different sizes when $m \ne n$.)
+\gap
+\part Prove that there are no matrices $A, B \in M_{n\times n}(\F)$ with $AB - BA = I$.
+\gap
+\newpage
+\part Let $W = \spn\{AB - BA : A, B \in M_{n\times n}(\F)\}$. Prove that
+\[
+W = \{X \in M_{n\times n}(\F) : \tr X = 0\},
+\]
+and find $\dim W$.
+\gap
+\end{parts}
+\newpage
+
+%------------------------ Problem 8 ------------------------
+\question[20] \mbox{}
+\begin{parts}
+\part Let $A \in M_{m\times n}(\F)$. Prove that if $Ax = 0$ has only the trivial solution, then $A^T y = c$ has a solution for every $c \in \F^n$.
+\gap
+\part Let $A \in M_{m\times n}(\F)$ and $B \in M_{n\times p}(\F)$. Prove that
+\[
+\rank(AB) \ge \rank A + \rank B - n.
+\]
+(Hint: apply the rank theorem to $A$ restricted to $\Ran B$.)
+\gap
+\newpage
+\part Let $A \in M_{n\times n}(\F)$ satisfy $A^2 = A$. Prove that $\rank A + \rank(I - A) = n$.
+\gap
+\end{parts}
+
+\end{questions}
+\newpage
+
+%------------------------ Bonus ------------------------
+\noindent\hspace*{-2.2em}\textbf{[+10]}\hspace{0.9em}\textbf{Bonus.} Prove that a vector space over $\R$ cannot be written as the union of three proper subspaces. (A subspace $U \subseteq V$ is \emph{proper} if $U \ne V$.)
+\gap
+
+\end{document}
