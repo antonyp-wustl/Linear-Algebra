@@ -1,0 +1,311 @@
+\documentclass[12pt]{amsart}
+
+%==================== Packages ====================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}              % paired delimiters, \coloneqq, etc.
+\usepackage{enumitem}               % control list labels
+\usepackage{bm}                     % bold math: \bm{v}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}  % load last
+
+\allowdisplaybreaks                 % let long align blocks break across pages
+\setlist[enumerate,1]{label=(\alph*)}  % problem parts as (a), (b), (c)
+
+%==================== Number systems ====================
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+%==================== Linear algebra ====================
+\DeclareMathOperator{\Ran}{Ran}         % range (Treil); \ker already exists
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\spn}{span}        % NOT \span: that's a TeX primitive
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\row}{Row}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\id}{id}
+\newcommand{\Mat}[2]{M_{#1\times #2}(\F)}   % \Mat{m}{n} -> M_{m x n}(F)
+\newcommand{\Pn}[1][n]{\mathcal{P}_{#1}}    % \Pn -> P_n, \Pn[3] -> P_3
+\newcommand{\tp}{^{\mathsf{T}}}             % A\tp -> A^T
+\newcommand{\inv}{^{-1}}                    % A\inv -> A^{-1}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+%==================== Analysis / topology ====================
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}    % NOT \int: that's the integral sign
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\pre}{^{\mathrm{pre}}}          % f\pre(V), Pugh's preimage
+\newcommand{\nbhd}[2]{N_{#1}(#2)}           % \nbhd{r}{p} -> N_r(p), Rudin
+\newcommand{\limn}{\lim_{n\to\infty}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}              % \int f(x)\dd x
+\newcommand{\restr}[2]{\left.#1\right|_{#2}}  % \restr{f}{A} -> f|_A
+\newcommand{\seq}[2][n]{\left(#2\right)_{#1\in\N}}  % \seq{p_n} -> (p_n)_{n in N}
+
+%==================== Delimiters (mathtools) ====================
+% \abs{x} normal size; \abs*{x} auto-sizes; \abs[\big]{x} manual size
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{#1}
+\DeclarePairedDelimiterX{\setof}[2]{\lbrace}{\rbrace}{#1 \,:\, #2}  % \setof{x\in\R}{x>0}
+
+%==================== Logic shortcuts ====================
+\newcommand{\contra}{\Rightarrow\!\Leftarrow}   % contradiction marker
+\newcommand{\st}{\text{ such that }}
+
+%==================== Theorem environments ====================
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}       % black box
+
+% Problem header using the textbook's exercise number: \begin{problem}{2.5}
+\newenvironment{problem}[1]{\par\medskip\noindent\textbf{#1.}\ }{\par\smallskip}
+% For computational answers that aren't proofs
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+\title{Homework 8}
+\author{Antony Perez}
+
+\begin{document}
+
+\maketitle
+
+%--------------------------------------------------
+\begin{problem}{4.1}
+Suppose the permutation $\sigma$ takes $(1,2,3,4,5)$ to $(5,4,1,2,3)$.
+\begin{enumerate}
+  \item Find sign of $\sigma$;
+  \item What does $\sigma^2 \coloneqq \sigma\circ\sigma$ do to $(1,2,3,4,5)$?
+  \item What does the inverse permutation $\sigma\inv$ do to $(1,2,3,4,5)$?
+  \item What is the sign of $\sigma\inv$?
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+(a) $(5,4,1,2,3)$ has $4 + 3 = 7$ inversions, so sign $\sigma = -1$. For (b), you simply apply the rule twice. It will give $(3,2,5,4,1)$. For (c), it inverts the rules. $\sigma(1) = 5 \implies 1 = \sigma^{-1}(5)$, and so on, giving us $(3,4,5,2,1)$. For (d), $(3,4,5,2,1)$ has $2+2+2+1 = 7$ inversions, so sign $\sigma^{-1}= -1$.
+\end{solution}
+
+%--------------------------------------------------
+\begin{problem}{4.2}
+Let $P$ be a \emph{permutation matrix}, i.e.\ an $n\times n$ matrix consisting of zeroes and ones and such that there is exactly one $1$ in every row and every column.
+\begin{enumerate}
+  \item Can you describe the corresponding linear transformation? That will explain the name.
+  \item Show that $P$ is invertible. Can you describe $P\inv$?
+  \item Show that for some $N > 0$
+  \[
+    P^N \coloneqq \underbrace{PP\dots P}_{N \text{ times}} = I.
+  \]
+  Use the fact that there are only finitely many permutations.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    (a). The standard basis is permuted: $P$ sends each $e_j$ to some $e_k$, so it rearranges the coordinates of a vector.
+\end{solution}
+\begin{proof}
+    (b). There is exactly one in every row and every column. Let $\alpha = \pm 1$ keep track of the column swapping, since each swap flips the sign. If $a_{11} = 0$, we may column swap so that $a_{11} = 1$. We can proceed like this inductively for $a_{22},a_{33},\ldots,a_{nn}$, giving us $I$. Hence, we get $\det(P)=\alpha \det(I) \neq 0$. Therefore, $P$ is invertible. Moreover, $P\inv = P^T$: the columns of $P$ are distinct standard basis vectors, so the dot product of column $i$ and column $j$ is $1$ if $i = j$ and $0$ otherwise, giving $P^TP = I$.
+\end{proof}
+
+\begin{proof}
+    (c). Each product of permutation matrices is itself a permutation matrix. Each $P$ maps the standard basis to a standard basis vector. $P^c$ is invertible by $\det(P\cdots P) = \det(P)\ldots \det(P) \neq 0$ by part b. Since there are finitely many permutation matrices, given by $n!$, $P^1, P^2, P^3,\ldots$ cannot all be distinct. Therefore, for some $a < b$, $P^a = P^b$. By invertibility, multiplying by $P^{-a}$ gives $I = P^{b-a}$. Let $N = b-a > 0$. Hence, we have completed the proof.
+\end{proof}
+
+%--------------------------------------------------
+\begin{problem}{4.3}
+Why is there an even number of permutations of $(1,2,\dots,9)$ and why are exactly half of them odd permutations?
+
+\noindent\textbf{Hint:} This problem can be hard to solve in terms of permutations, but there is a very simple solution using determinants.
+\end{problem}
+
+\begin{proof}
+    There are $9!$ permutations of $[9]$. Since $9!$ has a factor of 2 inside of it, it is even.
+
+    Let $A \in \mathcal{M}_{9\times9}$, where each entry is 1. $\det A = \sum_{\sigma \in \text{Perm(9)}} \sgn(\sigma)\prod_{i=1}^{9}a_{\sigma(i),i}$. Since all entries are one, each product is $1$, so this will result in $\det(A) = \#$evens - $\#$odds permutations. Since all rows of $A$ are equal, $\det(A) = 0$. So $\#$ even - $\#$ odd = 0 $\implies$ $\#$ even = $\#$ odd.
+\end{proof}
+
+%--------------------------------------------------
+\begin{problem}{4.4}
+If $\sigma$ is an odd permutation, explain why $\sigma^2$ is even but $\sigma\inv$ is odd.
+\end{problem}
+
+\begin{solution}
+    This is because it takes $2k+1$ column swaps for a single $\sigma$. When squaring, you get an even amount of swaps, hence making  sign $\sigma = -1$ and sign $\sigma^{2} =1$. For $\sigma^{-1}$, you are still performing the same amount of swaps, since it is merely an inverse, swapping the rules. So, sign $\sigma^{-1}=-1$.
+\end{solution}
+%--------------------------------------------------
+\begin{problem}{4.5}
+How many multiplications and additions is required to compute the determinant using formal definition (4.2) of the determinant of an $n\times n$ matrix? Do not count the operations needed to compute $\operatorname{sign}\sigma$.
+\end{problem}
+
+\begin{solution}
+  This requires $(n-1)n!$ multiplications. We multiply $n$ numbers, so we get $n-1$ multiplications, and since we are dealing with permutations, this can be done in $n!$ ways. So, $(n-1)n!$ is the answer. For addition, we have $n!$ terms, and adding each one up takes $n!-1$ addition symbols. Therefore, it takes $n! - 1$ additions.
+\end{solution}
+
+%--------------------------------------------------
+\begin{problem}{5.1}
+Evaluate the determinants using any method
+\[
+  \begin{vmatrix} 0 & 1 & 1 \\ 1 & 2 & -5 \\ 6 & -4 & 3 \end{vmatrix}, \qquad
+  \begin{vmatrix}
+    1 & -2 & 3 & -12 \\
+    -5 & 12 & -14 & 19 \\
+    -9 & 22 & -20 & 31 \\
+    -4 & 9 & -14 & 15
+  \end{vmatrix}.
+\]
+\end{problem}
+
+\begin{solution}
+    Using the cofactor method for $3 \times 3$: $-\begin{vmatrix}
+        1 & -5 \\ 6 & 3
+    \end{vmatrix} + \begin{vmatrix}
+        1 & 2 \\ 6 & -4
+    \end{vmatrix} = -49$.
+\\
+    For the $4 \times 4:$ Using $R_2 + 5R_1$, $R_3 + 9R_1$, $R_4 + 4R_1$ and expanding along the first column,
+\[
+  \det = \begin{vmatrix} 2 & 1 & -41 \\ 4 & 7 & -77 \\ 1 & -2 & -33 \end{vmatrix}=-100
+\]
+by cofactor expansion.
+\end{solution}
+%--------------------------------------------------
+\begin{problem}{5.2}
+Use row (column) expansion to evaluate the determinants. Note, that you don't need to use the first row (column): picking row (column) with many zeroes will simplify your calculations.
+\[
+  \begin{vmatrix} 1 & 2 & 0 \\ 1 & 1 & 5 \\ 1 & -3 & 0 \end{vmatrix}, \qquad
+  \begin{vmatrix}
+    4 & -6 & -4 & 4 \\
+    2 & 1 & 0 & 0 \\
+    0 & -3 & 1 & 3 \\
+    -2 & 2 & -3 & -5
+  \end{vmatrix}.
+\]
+\end{problem}
+
+\begin{solution}
+  Expanding along column 3, $-5 \begin{vmatrix}
+    1 & 2 \\ 1 & -3
+  \end{vmatrix} = 25$. For the second matrix, row swap $R_2$ and $R_1$. Then, we get $-\begin{vmatrix}
+    2 & 1 & 0 & 0 \\
+    4 &-6 &-4 &4 \\
+    0 &-3& 1& 3 \\
+    -2 & 2 & -3 & -5
+  \end{vmatrix} = -2\begin{vmatrix}
+    -6&-4&4\\
+    -3 &1& 3\\
+    2 &-3& -5\\
+  \end{vmatrix} + \begin{vmatrix}
+    4 &-4& 4 \\
+    0&1&3 \\
+    -2 &-3& -5
+  \end{vmatrix} = -32.$
+\end{solution}
+
+%--------------------------------------------------
+\begin{problem}{5.3}
+For the $n\times n$ matrix
+\[
+  A = \pmat{
+    0 & 0 & 0 & \dots & 0 & a_0 \\
+    -1 & 0 & 0 & \dots & 0 & a_1 \\
+    0 & -1 & 0 & \dots & 0 & a_2 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \dots & 0 & a_{n-2} \\
+    0 & 0 & 0 & \dots & -1 & a_{n-1}
+  }
+\]
+compute $\det(A + tI)$, where $I$ is $n\times n$ identity matrix. You should get a nice expression involving $a_0, a_1, \dots, a_{n-1}$ and $t$. Row expansion and induction is probably the best way to go.
+\end{problem}
+
+\begin{solution}
+  We claim $\det(A + tI) = t^n + a_{n-1}t^{n-1} + \cdots + a_1 t + a_0$ and prove it by induction on $n$. For $n = 1$, $\det(t + a_0) = t + a_0$.
+  For $n > 1$, the first row of $A + tI$ is $(t, 0, \dots, 0, a_0)$. Deleting row $1$ and column $1$ leaves a similar matrix of size $n-1$ with $a_1, \dots, a_{n-1}$ on the furthest right column, whose determinant
+is $t^{n-1} + a_{n-1}t^{n-2} + \cdots + a_1$ by induction. Deleting row $1$
+and column $n$ leaves an upper triangular matrix with $-1$ on the diagonal,
+whose determinant is $(-1)^{n-1}$. Therefore, we get
+\[
+  \det(A + tI)
+  = t (t^{n-1} + a_{n-1}t^{n-2} + \cdots + a_1)
+    + (-1)^{1+n}(-1)^{n-1}a_0
+  = t^n + a_{n-1}t^{n-1} + \cdots + a_1 t + a_0.
+\]
+\end{solution}
+
+%--------------------------------------------------
+\begin{problem}{5.4}
+Using cofactor formula compute inverses of the matrices
+\[
+  \pmat{1 & 2 \\ 3 & 4}, \qquad
+  \pmat{19 & -17 \\ 3 & -2}, \qquad
+  \pmat{1 & 0 \\ 3 & 5}, \qquad
+  \pmat{1 & 1 & 0 \\ 2 & 1 & 2 \\ 0 & 1 & 1}.
+\]
+\end{problem}
+
+\begin{solution}
+  For
+$2\times 2$ matrices we have
+$\pmat{a & b \\ c & d}\inv = \frac{1}{ad - bc}\pmat{d & -b \\ -c & a}$, so
+\[
+  \pmat{1 & 2 \\ 3 & 4}\inv = -\frac{1}{2}\pmat{4 & -2 \\ -3 & 1}, \;
+  \pmat{19 & -17 \\ 3 & -2}\inv = \frac{1}{13}\pmat{-2 & 17 \\ -3 & 19}, \;
+  \pmat{1 & 0 \\ 3 & 5}\inv = \frac{1}{5}\pmat{5 & 0 \\ -3 & 1}.
+\]
+For the $3\times 3$ matrix, expanding along the first row gives
+$\det = 1(1 - 2) - 1(2 - 0) = -3$. Computing each cofactor,
+\[
+  C = \pmat{-1 & -2 & 2 \\ -1 & 1 & -1 \\ 2 & -2 & -1}, \qquad
+  \pmat{1 & 1 & 0 \\ 2 & 1 & 2 \\ 0 & 1 & 1}\inv
+  = -\frac{1}{3}C^T
+  = \frac{1}{3}\pmat{1 & 1 & -2 \\ 2 & -1 & 2 \\ -2 & 1 & 1}.
+\]
+
+\end{solution}
+
+%--------------------------------------------------
+\begin{problem}{5.5}
+Let $D_n$ be the determinant of the $n\times n$ tridiagonal matrix
+\[
+  \pmat{
+    1 & -1 &   \cdots     &    \cdots    & 0  \\
+    1 & 1  & -1     &    \cdots    &   \vdots \\
+    \vdots  & 1  & \ddots & \ddots &   \vdots \\
+    \vdots  &  \cdots  & \ddots & 1      & -1 \\
+    0 &  \cdots   &     \cdots   & 1      & 1
+  }.
+\]
+Using cofactor expansion show that $D_n = D_{n-1} + D_{n-2}$. This yields that the sequence $D_n$ is the Fibonacci sequence $1, 2, 3, 5, 8, 13, 21, \dots$
+\end{problem}
+
+\begin{solution}
+  Let $A$ be the matrix above. Using cofactor expansion along the first row, we get $A_{11} =$ same matrix, just with $n-1$ dimension. This is $D_{n-1}$. For $A_{12},$ we get $
+A_{12} = \begin{pmatrix}
+1 & -1 & 0 & \cdots & 0 \\
+0 & 1 & -1 & & \\
+0 & 1 & 1 & \ddots & \\
+\vdots & & \ddots & \ddots & -1 \\
+0 & & & 1 & 1
+\end{pmatrix}.
+$ Expanding along the first column, we get the same matrix once again, but this time with $n-2$ dimension. This is $D_{n-2}$. Therefore, $\det(A) = (1)\det(A_{11}) - (-1)\det(A_{12}) = \det(A_{11}) + \det(A_{12})$, so $D_n = D_{n-1}+D_{n-2}.$ Since $D_1 = 1$ and $D_2 = 1 + 1 = 2$, this is the Fibonacci sequence.
+\end{solution}
+
+\end{document}

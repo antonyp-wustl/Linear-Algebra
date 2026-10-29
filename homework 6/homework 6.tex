@@ -103,7 +103,7 @@
 \end{problem}
 
 \begin{solution}
-    
+    TTFTF
 \end{solution}
 
 \begin{problem}{8.2}
@@ -116,7 +116,13 @@
 \end{problem}
 
 \begin{proof}
-    
+    Let $v_1,v_2,v_3,v_4$ be the vectors shown above respectively. Since they form a $4\times 4$ matrix, it is sufficient to show that $av_1+bv_2+cv_3+dv_4 = 0$ implies linear independence. We see $a=0$ for the first row; $a+b = 0 \implies b = 0$ for the 4th row; $a + 3b + 2c = 0 \implies c =0$ for row 3; $2a + b + 3c + d =0 \implies c = 0$ for 2nd row. Thus, these vectors are a basis for $\F^4$. 
+    \[[I]_{\mathcal{S}\mathcal{B}} = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\ 
+        2 & 1 & 3 & 1 \\ 
+        1 & 3 & 2 & 0 \\
+        1 & 1 & 0 & 0 \\ 
+    \end{pmatrix}\]
 \end{proof}
 
 \begin{problem}{8.3}
@@ -124,7 +130,10 @@
 \end{problem}
 
 \begin{solution}
-
+Let $\mathcal{A} = \{1,1+t\}$ and $\mathcal{B} = \{1-t,2t\}$. $1 = a(1-t) + b(2t) \implies a = 1, b=1/2.$ $1+t = a(1-t)+b(2t) \implies a=1,b =1$. Hence,
+\[[I]_{\mathcal{B}\mathcal{A}} = \begin{pmatrix}
+    1 & 1 \\ \frac{1}{2} & 1
+\end{pmatrix}\]
 \end{solution}
 
 \begin{problem}{8.4}
@@ -138,8 +147,22 @@
 \end{problem}
 
 \begin{solution}
-    
+    Let $[T]_\mathcal{S} = \begin{pmatrix} 3 & 1 \\ 1 & -2   \end{pmatrix}$. Let $\mathcal{B} = \{(1,1)^T,(1,2)^T\}$. Let $\mathcal{S} = [I]_{\mathcal{S}\mathcal{B}} = \begin{pmatrix}
+        1 & 1 \\ 1 & 2
+    \end{pmatrix} \implies \mathcal{S}^{-1} = \begin{pmatrix}
+        2 & -1 \\ -1 & 1
+    \end{pmatrix}$. Thus $[T]_\mathcal{B} = \mathcal{S}^{-1}[T]_\mathcal{S} \mathcal{S} = \begin{pmatrix}
+        9 & 13 \\ -5 & -8
+    \end{pmatrix}$
 \end{solution}
+
+\begin{problem}{8.5}
+    Prove, that if $A$ and $B$ are similar matrices, then $\tr A = \tr B$. 
+\end{problem}
+
+\begin{proof}
+    $B = Q^{-1}AQ$ by similarity. $\tr(XY) = \tr(YX)$ if both products are defined. Let $X = Q^{-1}A$ and $Y = Q$: $\tr(B)=\tr((Q^{-1}A)Q) = \tr(Q(Q^{-1}A)) = \tr(A)$. Thus, $\tr (A) = \tr (B)$. 
+\end{proof}
 
 \begin{problem}{8.6}
     Are the matrices 
@@ -152,7 +175,13 @@
 \end{problem}
 
 \begin{proof}
-    
+    No. Let $A = \begin{pmatrix}
+        1 & 3 \\ 2 & 2
+    \end{pmatrix}$ and $B = \begin{pmatrix}
+        0 & 2 \\ 4 & 2
+    \end{pmatrix}$. If $B = Q^{-1}AQ$ then $AQ = QB$. Letting $Q = \begin{pmatrix}
+        a & b \\ c & d
+    \end{pmatrix},$ we can compare entries and see that $AQ$ and $QB$ force $a=b=c=d$, so $Q$ is not invertible due to $\det Q = 0$. Hence, the matrices aren't similar. 
 \end{proof}
 
 \end{document}
